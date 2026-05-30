@@ -47,7 +47,7 @@ export const registerUser = async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: "Xác thực tài khoản - CoffeeGo",
+      subject: "Xác thực tài khoản - THREESTAR",
       html: `
         <p>Xin chào <b>${name}</b>,</p>
         <p>Bấm vào liên kết dưới đây để xác thực email của bạn:</p>
@@ -217,7 +217,7 @@ export const changePassword = async (req, res) => {
     if (!user)
       return res.status(404).json({ message: "Không tìm thấy người dùng" });
 
-    // So sánh mật khẩu cũ
+    // So sánh mật khẩu
     const isMatch = await bcrypt.compare(oldPassword, user.password);
     if (!isMatch)
       return res.status(400).json({ message: "Mật khẩu cũ không đúng" });
